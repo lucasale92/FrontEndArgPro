@@ -1,0 +1,35 @@
+.container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logoap{
+    width: 220px;
+    text-align:start;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: flex-start;  
+}
+img{
+    width:50px ;
+}
+.margin{
+    margin-right:0.5em;
+}
+.btn{
+    border-width: medium;
+}
+/*-- mobile -- */
+@media(max-width: 575px){
+    .container{
+        flex-direction: column;
+    }
+    .margin{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .margin img{
+        margin:0.5em;
+    }
+}
