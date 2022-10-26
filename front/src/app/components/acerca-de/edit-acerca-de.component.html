@@ -1,0 +1,46 @@
+<div class="container" *ngIf="persona">
+    <section class="vh-100 gradient-custom"> 
+    <div class="row">
+        <div>
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm"  class="form-horizontal">
+                <legend class="text-center header">Editar persona</legend>
+                <div class="form-group">
+                <label for="nombre" class="letra"> Nombre </label>
+                <span class="col-md-1 col-md-offset-2 text-center"><i class="bi bi-shop tam"></i></span>
+                <div  class="col-md-8"> 
+                <input placeholder="Ingrese el nombre" type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="persona.nombre" required>
+            </div>
+            </div>
+            <div class="form-group">
+                <label for="apellido" class="letra"> Apellido</label>
+                <span class="col-md-1 col-md-offset-2 text-center"><i class="bi bi-book tam"></i></span>
+                <div  class="col-md-8"> 
+                <input  placeholder="Ingrese el apellido" type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="persona.apellido" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="descripcion" class="letra"> Descripcion</label>
+            <span class="col-md-1 col-md-offset-2 text-center"><i class="bi bi-book tam"></i></span>
+            <div  class="col-md-8"> 
+            <input  placeholder="Ingrese una breve descripcion" type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="persona.descripcion" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="img" class="letra"> Imagen</label>
+        <span class="col-md-1 col-md-offset-2 text-center"><i class="bi bi-book tam"></i></span>
+        <div  class="col-md-8"> 
+        <input type="file" class="form-control" id="img" name="img" [(ngModel)]="persona.img" (change)="uploadImage($event)" accept=".jpg, .jpeg, .png" required>
+    </div>
+</div>
+        <div class="imagen">
+            <img [src]="imageService.url" width="200px" alt="perfil">
+
+        </div>
+        <br>
+        <div class="col-md-12 text-start my-2 mx-1">
+            <button type="submit" class="btn btn-dark btn-lg"> Actualizar persona</button>
+        </div>
+        </form>
+        </div>
+    </div>
+</section>

@@ -1,16 +1,27 @@
 <div class="row">
     <h1>Experiencia laboral</h1>
+    <div class="col-lg-2">
+        <button type="button" class="boton" routerLink="/nuevaexp" *ngIf="isLogged">
+            Nueva experiencia
+        </button>
+    </div>
+    <div class="col lg 1"> </div>
     <div class="col-lg-11">
-        <ul>
-            <li><h1> trabajo 1</h1> - <h3>(year)</h3></li>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt recusandae labore totam quam ab nemo provident molestias sed, reiciendis voluptatibus! Expedita suscipit aperiam voluptatem harum cupiditate rem voluptates aspernatur aut!</p>
-        </ul>
-        <ul>
-            <li><h1> trabajo 2</h1> - <h3>(year)</h3></li>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt recusandae labore totam quam ab nemo provident molestias sed, reiciendis voluptatibus! Expedita suscipit aperiam voluptatem harum cupiditate rem voluptates aspernatur aut!</p>
-        </ul>
-        <ul>
-            <li><h1> trabajo 3</h1> - <h3>(year)</h3></li>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt recusandae labore totam quam ab nemo provident molestias sed, reiciendis voluptatibus! Expedita suscipit aperiam voluptatem harum cupiditate rem voluptates aspernatur aut!</p>
-        </ul>
+    <table class="table">
+        <tbody>
+            <tr *ngFor="let Experiencia of expe">
+                <td> <h3>{{Experiencia.nombreE}}</h3></td>
+                <td>{{Experiencia.descripcionE}}</td>
+                <td *ngIf="isLogged">
+                    <button class="boton" routerLink="/editexp/{{Experiencia.id}}">
+                    <i class="bi bi-pencil-square"></i>Editar</button>
+                </td>
+                
+                <td *ngIf="isLogged">
+                    <button class="boton" (click)="delete(Experiencia.id)">
+                    <i class="bi bi-trash"></i>Borrar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

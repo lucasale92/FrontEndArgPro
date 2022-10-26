@@ -1,0 +1,33 @@
+.container{
+    background-color: #030303;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    
+}
+.header {
+    color: #010407;
+    font-size: 27px;
+    padding: 10px;
+    box-shadow: #000000 2px 0px 10px 0px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.gradient-custom {
+    
+    background: -webkit-linear-gradient(to right, rgb(8, 8, 8), rgb(255, 255, 255));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgb(61, 231, 243), rgb(163, 37, 189))
+    }
+.letra{
+    color: #030303;
+    font-size: 20px;
+    padding: 10px;
+}
+.tam{
+    font-size: 40px;
+    color: #000000;
+}

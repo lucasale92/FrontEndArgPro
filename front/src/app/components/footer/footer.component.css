@@ -1,5 +1,5 @@
 .row{
-    background-color: #006fb8;
+    background: linear-gradient(to left,rgba(163, 95, 246, 1), rgba(37, 117, 252, 1));
 }
 footer{
     color: #242424;

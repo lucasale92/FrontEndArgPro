@@ -1,6 +1,6 @@
 .row{
     padding: 20px;
-    background-color: #241f21;
+    background: linear-gradient(to right,rgba(163, 95, 246, 1), rgba(37, 117, 252, 1));
 }
 .img-fluid{
     width: 250px;
@@ -8,11 +8,26 @@
     border-radius: 100%;
 }
 .centrado{
-    background-color: #241f21;
-    text-align: start;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
 }
 p{
     font-weight: bold;
     font-size: 25px;
+}
+.boton{
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: #bbb 0px 0px 10px;
 }

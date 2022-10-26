@@ -1,0 +1,28 @@
+<div class="container" *ngIf="skill">
+    <section class="vh-100 gradient-custom"> 
+    <div class="row">
+        <div>
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm" class="form-horizontal">
+                <legend class="text-center header">Editar skill</legend>
+            <div class="form-group">
+                <label for="nombre" class="letra"> Nombre de la skill</label>
+                <span class="col-md-1 col-md-offset-2 text-center"><i class="bi bi-code-square tam"></i></span>
+                <div  class="col-md-8"> 
+                <input placeholder="Ingrese el nombre de la skill" type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="skill.nombre" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="porcentaje" class="letra"> porcentaje</label>
+                <span class="col-md-1 col-md-offset-2 text-center"><i class="bi bi-universal-access-circle tam"></i></span>
+                <div  class="col-md-8"> 
+                <input  placeholder="Ingrese el porcentaje" type="text" class="form-control" id="porcentaje" name="porcentaje" [(ngModel)]="skill.porcentaje" required>
+                </div>
+            </div>
+            
+            <div class="col-md-12 text-start my-2 mx-1">
+                <button type="submit" class="btn btn-dark btn-lg"> Actualizar skill</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</section>
