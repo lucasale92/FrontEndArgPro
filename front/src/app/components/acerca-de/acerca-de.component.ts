@@ -28,9 +28,7 @@ export class AcercaDeComponent implements OnInit {
       (data) => {
         this.persona = data;
       },
-
     )
-
   }
 }
 

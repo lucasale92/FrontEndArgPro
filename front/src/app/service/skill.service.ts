@@ -9,10 +9,13 @@ import { Skill } from '../model/skill';
 })
 export class SkillService {
   URL = environment.URL + 'skill/';
+  
   constructor(private httpClient: HttpClient) { }
+
   public lista(): Observable<Skill[]>{
     return this.httpClient.get<Skill[]>(this.URL + 'lista');
   }
+
   public detail(id: number): Observable<Skill>{
     return this.httpClient.get<Skill>(this.URL + `detail/${id}`);
   }
@@ -29,4 +32,3 @@ export class SkillService {
     return this.httpClient.delete(this.URL + `delete/${id}`);
   }
 }
-

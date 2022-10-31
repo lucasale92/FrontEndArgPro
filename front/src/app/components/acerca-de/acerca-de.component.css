@@ -1,6 +1,8 @@
 .row{
-    padding: 20px;
     background: linear-gradient(to right,rgba(163, 95, 246, 1), rgba(37, 117, 252, 1));
+    color: white;
+    padding: 20px;
+    
 }
 .img-fluid{
     width: 250px;
@@ -13,7 +15,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    
+   
 }
 p{
     font-weight: bold;
