@@ -1,5 +1,6 @@
 h1{
   display: inline;
+  background-color: linear-gradient(90deg,rgba(37, 117, 252, 1) 11%,rgba(163, 95, 246, 1) 38%,rgba(14,11,22,.6671043417366946) 65%);
 }
 .row{
     background: linear-gradient(to right,rgba(163, 95, 246, 1), rgba(37, 117, 252, 1));
@@ -15,7 +16,12 @@ h1{
   position:relative;
   width:450px;
   display:flex;
-  justify-content:space-around;
+  justify-content:space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  align-items: center;
+
 }
 .card
 {
