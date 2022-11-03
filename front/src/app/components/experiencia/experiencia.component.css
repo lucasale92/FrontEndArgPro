@@ -4,7 +4,11 @@
     color: white;
 }
 
-h1, h3{
+h1{
+    display: inline;
+    background-color: blueviolet;
+}
+h3{
     display: inline;
 }
 div{       

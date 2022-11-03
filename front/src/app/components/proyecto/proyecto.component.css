@@ -3,6 +3,9 @@
     background: linear-gradient(to right,rgba(163, 95, 246, 1), rgba(37, 117, 252, 1));
     color: white;
 }
+h1{
+    background-color: blueviolet;
+}
 .contenedor{
     width: auto;
 }
