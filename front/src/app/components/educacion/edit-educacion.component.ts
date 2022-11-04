@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/service/educacion.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-edit-educacion',
   templateUrl: './edit-educacion.component.html',
@@ -10,6 +10,7 @@ import { EducacionService } from 'src/app/service/educacion.service';
 })
 export class EditEducacionComponent implements OnInit {
   educacion: Educacion = null;
+  showModal(){}
   constructor(private educacionS: EducacionService, private activatedRouter: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -17,7 +18,7 @@ export class EditEducacionComponent implements OnInit {
     this.educacionS.detail(id).subscribe(data => {
       this.educacion = data;
     }, err =>{
-      alert("Error al cargar los datos");
+      Swal.fire('Error', `Error al cargar la Educacion ${id}`, 'error');
       this.router.navigate(['']);
     }
     )
@@ -25,9 +26,10 @@ export class EditEducacionComponent implements OnInit {
   onUpdate():void{
     const id = this.activatedRouter.snapshot.params['id'];
     this.educacionS.update(id, this.educacion).subscribe(data => {
+      Swal.fire('Educacion', `Educacion ${id} actualizada con exito`, 'success');
       this.router.navigate(['']);
     }, err => {
-      alert("Error al actualizar");
+      Swal.fire('Error', `Error al actualizar la Educacion ${id}`, 'error');
       this.router.navigate(['']);
   }
     )

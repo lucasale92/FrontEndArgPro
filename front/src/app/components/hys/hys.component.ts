@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Skill } from 'src/app/model/skill';
 import { SkillService } from 'src/app/service/skill.service';
 import { TokenService } from 'src/app/service/token.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-hys',
   templateUrl: './hys.component.html',
@@ -10,6 +10,7 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class HysComponent implements OnInit {
   skill: Skill[] = [];
+  ShowModal(){}
 
   constructor(private skillS: SkillService, private tokenService: TokenService) { }
   isLogged = false;
@@ -36,8 +37,10 @@ export class HysComponent implements OnInit {
       this.skillS.delete(id).subscribe(
         data => {
           this.cargarSkills();
+          Swal.fire('Skill', `Skill eliminada con exito`, 'success');
         }, err => {
-          alert("No se pudo borrar la skill");
+          Swal.fire('Error', `Error al eliminar la Skill ${id}`, 'error');
+
         }
       )
     }

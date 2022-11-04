@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Skill } from 'src/app/model/skill';
 import { SkillService } from 'src/app/service/skill.service';
-
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -14,6 +14,7 @@ import { SkillService } from 'src/app/service/skill.service';
 export class NewSkillComponent implements OnInit {
   nombre: string;
   porcentaje: number;
+  showModal(){}
 
   constructor(private skillS: SkillService, private router: Router) { }
 
@@ -24,10 +25,10 @@ export class NewSkillComponent implements OnInit {
     const skill = new Skill(this.nombre, this.porcentaje);
     this.skillS.save(skill).subscribe(
       data => {
-        alert("Skill creada correctamente");
+        Swal.fire('Nueva Skill', `Skill ${this.nombre} creada con exito`, 'success');
         this.router.navigate(['']);
       }, err =>{
-        alert("Fallo al añadir la skill");
+        Swal.fire('Nueva Skill', `Error al crear la Skill ${this.nombre}`, 'error');
         this.router.navigate(['']);
       }
     )

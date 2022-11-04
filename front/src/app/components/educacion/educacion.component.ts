@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/service/educacion.service';
 import { TokenService } from 'src/app/service/token.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-educacion',
@@ -12,6 +13,7 @@ export class EducacionComponent implements OnInit {
   educacion: Educacion[] = [];
   constructor(private educacionS: EducacionService, private tokenService: TokenService) { }
   isLogged = false;
+  ShowModal(){}
 
   ngOnInit(): void {
     this.cargarEducacion();
@@ -35,8 +37,9 @@ export class EducacionComponent implements OnInit {
         this.educacionS.delete(id).subscribe(
           data => {
             this.cargarEducacion();
+            Swal.fire('Educacion', `Educacion eliminada con exito`, 'success');
           }, err =>{
-            alert("no se pudo eliminar")
+            Swal.fire('Error', `Error al eliminar la Educacion ${id}`, 'error');
           }
         );
       }

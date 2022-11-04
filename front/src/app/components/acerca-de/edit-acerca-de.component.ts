@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { persona } from 'src/app/model/persona.model';
 import { ImageService } from 'src/app/service/image.service';
 import { PersonaService } from 'src/app/service/persona.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-acerca-de',
@@ -11,6 +12,7 @@ import { PersonaService } from 'src/app/service/persona.service';
 })
 export class EditAcercaDeComponent implements OnInit {
   persona: persona = null;
+  showModal(){}
 
   constructor( private activatedRouter: ActivatedRoute, private personaService: PersonaService, private router: Router, public imageService: ImageService) { }
   
@@ -19,7 +21,16 @@ export class EditAcercaDeComponent implements OnInit {
     this.personaService.detail(id).subscribe(data => {
       this.persona = data;
     }, err =>{
-      alert("Error al cargar los datos");
+      this.showModal();{
+        Swal.fire({
+          title:'Error al cargar los datos',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sí, bórralo!'
+        }) 
+      }
       this.router.navigate(['']);
     }
     )
@@ -30,11 +41,18 @@ export class EditAcercaDeComponent implements OnInit {
     this.personaService.update(id, this.persona).subscribe(data => {
       this.router.navigate(['']);
     }, err => {
-      alert("Error al actualizar");
-      this.router.navigate(['']);
+      this.showModal();{
+        Swal.fire({
+          title:'Perfil actualizado correctamente',
+          icon: 'success',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'OK'
+        })
+      }
+      this.router.navigate(['']);  
   }
-    )
-
+  )
   }
   uploadImage($event: any){
     const id = this.activatedRouter.snapshot.params['id'];
@@ -42,5 +60,9 @@ export class EditAcercaDeComponent implements OnInit {
     this.imageService.uploadImage($event, name)
     }
   }
+
+
+
+
 
 

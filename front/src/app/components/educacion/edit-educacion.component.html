@@ -1,5 +1,5 @@
 <div class="container" *ngIf="educacion">
-    
+    <section class="vh-100 gradient-custom"> 
     <div class="row">
         <div>
             <form (ngSubmit)="onUpdate()" novalidate #f="ngForm"  class="form-horizontal">
@@ -19,9 +19,10 @@
             </div>
         </div>
         <div class="col-md-12 text-start my-2 mx-1">
-            <button type="submit" class="btn btn-dark btn-lg"> Actualizar educación</button>
+            <button (click)="showModal()" type="submit" class="btn btn-dark btn-lg"> Actualizar educación</button>
         </div>
         </form>
         </div>
     </div>
+</section>
 

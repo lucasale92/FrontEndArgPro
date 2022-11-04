@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
 import { SExperienciaService } from 'src/app/service/s-experiencia.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-new-experiencia',
   templateUrl: './new-experiencia.component.html',
@@ -11,6 +11,7 @@ import { SExperienciaService } from 'src/app/service/s-experiencia.service';
 export class NewExperienciaComponent implements OnInit {
   nombreE: string = "";;
   descripcionE: string = "";
+  showModal(){}
 
   constructor(private sExperiencia: SExperienciaService, private router: Router) { }
 
@@ -19,10 +20,10 @@ export class NewExperienciaComponent implements OnInit {
   onCreate(): void{
     const expe = new Experiencia(this.nombreE, this.descripcionE);
     this.sExperiencia.save(expe).subscribe(data => {
-      alert("Experiencia creada con exito");
+      Swal.fire('Nueva Experiencia', `Experiencia ${this.nombreE} creada con exito`, 'success');
       this.router.navigate(['']);
     }, err => {
-      alert("Error al crear experiencia");
+      Swal.fire('Nueva Experiencia', `Error al crear la Experiencia ${this.nombreE}`, 'error');
       this.router.navigate(['']);
     }
     );

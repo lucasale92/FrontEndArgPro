@@ -15,11 +15,11 @@
                 <label for="descripcionE" class="letra"> Descripción de sus estudios</label>
                 <span class="col-md-1 col-md-offset-2 text-center"><i class="bi bi-book tam"></i></span>
                 <div  class="col-md-8">
-                <input input placeholder="¿Cuales fueron sus estudios?" type="text" class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="descripcionE" required>
+                <input placeholder="¿Cuales fueron sus estudios?" type="text" class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="descripcionE" required>
             </div>
             </div>
             <div class="col-md-12 text-start my-2 mx-1">
-                <button type="submit" class="btn btn-dark btn-lg"> Agregar educación</button>
+                <button (click)="showModal()" type="submit" class="btn btn-dark btn-lg"> Agregar educación</button>
             </div>
         </form>
         </div>
